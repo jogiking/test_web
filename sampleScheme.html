@@ -12,7 +12,7 @@
         alert(message);
     }
 
-    function callNative1() {
+    function callNative1(message) {
         try {
             window.webkit.messageHandlers.callbackHandler.postMessage("MessageBody");
         } catch(err) {
