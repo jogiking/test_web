@@ -19,7 +19,7 @@
             alert(err);
         }
     }
-    function callNative2() {
+    function callNative2(message) {
         try {
             webkit.messageHandlers.callbackHandler.postMessage("MessageBody");
         } catch(err) {
@@ -42,8 +42,10 @@
 <h1> WKWebView 테스트 <br /></h1>
 
 <br><input type="button" onclick="callNative1('MessageBody');" value='postMessage test'/>
+<br><input type="button" onclick="callNative2('MessageBody');" value='window없이 postMessage test2'/>
+
 <!-- <br><input type="button" onclick="callNative2();" value="네이티브 함수 호출: 파라미터 1개" />
-<br><input type="button" onclick="callNative3();" value="네이티브 함수 호출. 파라미터 2개, object형식" /> -->
+<br><input type="button" onclick="callNative3();" value="네이티브 함수 호출. 파라미터 2개, object형식" /> --> -->
 
 </body>
 </html>
