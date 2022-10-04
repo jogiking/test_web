@@ -4,12 +4,6 @@
 </head>
 
 <script type="text/javascript">
-    //alert(2)
-    
-   function callNative01() {
-       window.location = "nativeScheme://testHost";
-   }
-
     function test02() {
         alert('test02');
     }
@@ -18,8 +12,21 @@
         alert(message);
     }
 
-    function callNative() {
-        alert('MessageBody');
+    function callNative1() {
+        try {
+            webkit.messageHandler.callbackHandler.postMessage("MessageBody");
+        } catch(err) {
+            alert(err);
+        }
+    }
+    function callNative2() {
+        try {
+            webkit.messageHandler.callbackHandler.postMessage("MessageBody");
+        } catch(err) {
+            alert(err);
+        }
+    }
+    function callNative3() {
         try {
             webkit.messageHandler.callbackHandler.postMessage("MessageBody");
         } catch(err) {
@@ -28,13 +35,15 @@
     }
 </script>
 <body>
-<h1> <a href="javascript:test02();">Test Click</a> </h1> <br /><br />
+<h1> <a href="javascript:test02();">Alert Test</a> </h1> <br /><br />
 
 <h1> <a href="javascript:callNative01();">CallNative 01 Click</a> </h1> <br /><br />
 
 <h1> WKWebView 테스트 <br /></h1>
 
-<br><input type="button" onclick="callNative();" value="네이티브 함수 호출." />
+<br><input type="button" onclick="callNative1();" value="네이티브 함수 호출: \'MessageBody\'" />
+<!-- <br><input type="button" onclick="callNative2();" value="네이티브 함수 호출: 파라미터 1개" />
+<br><input type="button" onclick="callNative3();" value="네이티브 함수 호출. 파라미터 2개, object형식" /> -->
 
 </body>
 </html>
