@@ -19,6 +19,7 @@
     }
 
     function callNative() {
+        alert('MessageBody');
         try {
             webkit.messageHandler.callbackHandler.postMessage("MessageBody");
         } catch(err) {
