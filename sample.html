@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>MessageHandler Test</title>
+        <style type="text/css">
+            #container {
+                margin-top: 30pt;
+            }
+        button {
+            background-color: gray;
+            border: none;
+            padding: 10pt;
+            font-size: 20pt;
+            width: 100%;
+        }
+        </style>
+        <script type="text/javascript">
+        function sendMessage() {
+            window.webkit.messageHandlers.iosMessage.postMessage({});
+        }
+        </script>
+    </head>
+    <body>
+        <div id='container' align ='center'>
+            <button onclick='sendMessage();'>send message()</button></br>
+        </div>
+    </body>
+</html>
