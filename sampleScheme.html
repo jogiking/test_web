@@ -14,7 +14,7 @@
 
     function callNative1(message) {
         try {
-            window.webkit.messageHandlers.callbackHandler.postMessage("MessageBody");
+            window.webkit.messageHandlers.MessageBody.callbackHandler.postMessage("MessageBody");
         } catch(err) {
             alert(err);
         }
