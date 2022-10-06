@@ -30,16 +30,20 @@
     function callNative2(message) {
         try {
             var message = {
-                'type': 'download',
-                'data': {
+                'EVENT': 'IMAGE',
+                'DATA': {
                     'url': 'https://raw.githubusercontent.com/jogiking/test_web/main/1.png',
                     'fileSize': 115342,
                     'width': 348,
                     'height': 346,
                     'fileName': '상냥한 비버 소녀 루피'
+                },
+                'ERROR': {
+                    'STATE': false,
+                    'CODE': "901"
                 }
             };
-            webkit.messageHandlers.callbackHandler.postMessage(message);
+            webkit.messageHandlers.callbackHandler.postMessage(JSON.stringify(message));
         } catch (err) {
             alert(err);
         }
@@ -85,8 +89,8 @@
 
     <div id='container' align='center'>
         <button onclick='callNative1();'>파라미터 1개 문자열</button></br>
-        <button onclick='callNative2();'>파라미터 2개 오브젝트로</button></br>
-        <button onclick='callNative3();'>파라미터 2개 오브젝트 + JSON.stringify</button></br>
+        <button onclick='callNative2();'>(1) 파라미터 2개 오브젝트 + JSON.stringify</button></br>
+        <button onclick='callNative3();'>(2) 파라미터 2개 오브젝트 + JSON.stringify</button></br>
         <button onclick='callNative4();'>다른 이벤트 전송</button></br>
     </div>
 
